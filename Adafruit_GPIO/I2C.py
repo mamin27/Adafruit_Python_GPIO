@@ -144,6 +144,18 @@ class Device(object):
         self._logger.debug("Read 0x%02X",
                     result)
         return result
+    
+    def readRaw16(self):
+        result = self._bus.read_bytes(self._address,2)
+        self._logger.debug("Read2 bytes: %s",
+                    result)
+        return result
+
+    def readRaw32(self):
+        result = self._bus.read_bytes(self._address, 4)
+        self._logger.debug("Read 4 bytes: %s",
+                    result)
+        return result
 
     def readU8(self, register):
         """Read an unsigned byte from the specified register."""
